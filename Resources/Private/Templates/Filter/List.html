@@ -1,0 +1,41 @@
+{namespace newscat = GeorgRinger\NewsCategoryfilter\ViewHelpers}
+
+<h3>Filter</h3>
+
+<f:form name="filter" object="{filter}" class="form-inline">
+    <div class="form-group">
+        <label for="category1">Category 1</label>
+        <f:form.select property="category1" id="category1"
+                       options="{newscat:categoryFilter(news:news,categoryParent:settings.category1)}"
+                       prependOptionLabel="" prependOptionValue="" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="category2">Category 2</label>
+        <f:form.select property="category2" id="category2"
+                       options="{newscat:categoryFilter(news:news,categoryParent:settings.category2)}"
+                       prependOptionLabel="" prependOptionValue="" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <f:form.submit class="btn btn-primary" value="Filter"/>
+    </div>
+</f:form>
+
+<f:if condition="{news}">
+    <f:then>
+        <div class="row">
+            <f:for each="{news}" as="newsItem">
+                <div class="col-md-3">
+                    <h5>{newsItem.title}</h5>
+                    <ul>
+                        <f:for each="{newsItem.categories}" as="category">
+                            <li>{category.title}</li>
+                        </f:for>
+                    </ul>
+                </div>
+            </f:for>
+        </div>
+    </f:then>
+    <f:else>
+        <div class="alert alert-danger">No news found</div>
+    </f:else>
+</f:if>

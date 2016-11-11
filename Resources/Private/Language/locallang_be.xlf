@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2016-10-07T11:59:44Z"
+          product-name="downloads">
+        <header/>
+        <body>
+            <trans-unit id="flexforms_general.category1">
+                <source>Category 1</source>
+            </trans-unit>
+            <trans-unit id="flexforms_general.category2">
+                <source>Category 2</source>
+            </trans-unit>
+            <trans-unit id="plugin-title">
+                <source>News Category Filter</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>
