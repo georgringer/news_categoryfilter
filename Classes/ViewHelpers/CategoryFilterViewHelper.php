@@ -31,7 +31,7 @@ class CategoryFilterViewHelper extends AbstractViewHelper implements CompilableI
 
 
     /**
-     * Resolve user avatar from backend user id.
+     * Return the news items.
      *
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
