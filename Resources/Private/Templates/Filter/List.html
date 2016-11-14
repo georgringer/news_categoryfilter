@@ -1,18 +1,18 @@
 {namespace newscat = GeorgRinger\NewsCategoryfilter\ViewHelpers}
 {namespace n=GeorgRinger\News\ViewHelpers}
 
-<div class="pure-g">
+<div class="pure-g jobFilter">
     <div class="pure-u-1">
         <f:form name="filter" object="{filter}" class="pure-form">
             <f:form.select property="category1" id="category1"
                            options="{newscat:categoryFilter(news:news,categoryParent:settings.category1)}"
-                           prependOptionLabel="{f:if(condition: settings.categoryFilterName1, then: settings.categoryFilterName1)}" prependOptionValue="" class="form-control"
+                           prependOptionLabel="{f:if(condition: settings.categoryFilterName1, then: settings.categoryFilterName1)}" prependOptionValue="" class="form-control jobFilter1"
                            additionalAttributes="{onchange: 'this.form.submit()'}"/>
             <f:form.select property="category2" id="category2"
                            options="{newscat:categoryFilter(news:news,categoryParent:settings.category2)}"
-                           prependOptionLabel="{f:if(condition: settings.categoryFilterName2, then: settings.categoryFilterName2)}" prependOptionValue="" class="form-control"
+                           prependOptionLabel="{f:if(condition: settings.categoryFilterName2, then: settings.categoryFilterName2)}" prependOptionValue="" class="form-control jobFilter2"
                            additionalAttributes="{onchange: 'this.form.submit()'}"/>
-            <f:link.page pageUid="{settings.backPid}" class="pure-button pure-button-primary">
+            <f:link.page pageUid="{settings.backPid}" class="jobFilterReset">
                 {f:translate(key: 'news_categoryfilter.filter_reset', default: 'Auswahl zurücksetzen', extensionName:'news_categoryfilter')}
             </f:link.page>
         </f:form>
@@ -21,12 +21,27 @@
 
 <f:if condition="{news}">
     <f:then>
-        <div class="pure-g">
-            <f:for each="{news}" as="newsItem">
-                <div class="pure-u-1">
-                    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link>
-                </div>
-            </f:for>
+        <div class="pure-g jobFilterList">
+            <div class="pure-u-1">
+                <f:for each="{news}" as="newsItem">
+                    <div class="pure-g jobItem">
+                        <div class="pure-u-3-4 jobsLeftCol">
+                            <div class="filterCategories">
+                                <f:for each="{newsItem.categories}" as="category" iteration="iterator">
+                                    <span class="filterCategory">{category.title}<f:if condition="{iterator.isLast}"><f:else>, </f:else></f:if></span>
+                                </f:for>
+                            </div>
+                            <div class="newsTitle">
+                                <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link>
+                            </div>
+                        </div>
+                        <div class="pure-u-1-4 jobsRightCol">
+                            <span class="pure-button jobButton pure-button-primary"><n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">Zu den Details</n:link></span>
+                        </div>
+                    </div>
+                </f:for>
+                <div class="jobSeparator"></div>
+            </div>
         </div>
     </f:then>
     <f:else>
