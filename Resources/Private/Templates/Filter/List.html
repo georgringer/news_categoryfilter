@@ -29,32 +29,34 @@
     </div>
 </div>
 
-<f:if condition="{news}">
-    <f:then>
-        <div class="pure-g jobFilterList">
-            <div class="pure-u-1">
-                <f:for each="{news}" as="newsItem">
-                    <div class="pure-g jobItem">
-                        <div class="pure-u-3-4 jobsLeftCol">
-                            <div class="filterCategories">
-                                <f:for each="{newsItem.categories}" as="category" iteration="iterator">
-                                    <span class="filterCategory">{category.title}<f:if condition="{iterator.isLast}"><f:else>, </f:else></f:if></span>
-                                </f:for>
-                            </div>
-                            <div class="newsTitle">
-                                <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link>
-                            </div>
-                        </div>
-                        <div class="pure-u-1-4 jobsRightCol">
-                            <span class="pure-button jobButton pure-button-primary"><n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">Zu den Details</n:link></span>
-                        </div>
-                    </div>
-                </f:for>
-                <div class="jobSeparator"></div>
-            </div>
-        </div>
-    </f:then>
-    <f:else>
-        <div class="alert alert-danger">No news found</div>
-    </f:else>
+<f:if condition="{filterActive}">
+  <f:if condition="{news}">
+      <f:then>
+          <div class="pure-g jobFilterList">
+              <div class="pure-u-1">
+                  <f:for each="{news}" as="newsItem">
+                      <div class="pure-g jobItem">
+                          <div class="pure-u-3-4 jobsLeftCol">
+                              <div class="filterCategories">
+                                  <f:for each="{newsItem.categories}" as="category" iteration="iterator">
+                                      <span class="filterCategory">{category.title}<f:if condition="{iterator.isLast}"><f:else>, </f:else></f:if></span>
+                                  </f:for>
+                              </div>
+                              <div class="newsTitle">
+                                  <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link>
+                              </div>
+                          </div>
+                          <div class="pure-u-1-4 jobsRightCol">
+                              <span class="pure-button jobButton pure-button-primary"><n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">Zu den Details</n:link></span>
+                          </div>
+                      </div>
+                  </f:for>
+                  <div class="jobSeparator"></div>
+              </div>
+          </div>
+      </f:then>
+      <f:else>
+          <div class="alert alert-danger">No news found</div>
+      </f:else>
+  </f:if>
 </f:if>

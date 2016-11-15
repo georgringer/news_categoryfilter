@@ -18,6 +18,9 @@ class FilterController extends ActionController
             $filter = $this->objectManager->get(Filter::class);
         }
         $demand = $this->createDemandObject($filter);
+        if ($_GET['tx_newscategoryfilter_filter']) {
+            $this->view->assign('filterActive', true);
+        }
         $this->view->assignMultiple([
             'filter' => $filter,
             'news' => $this->newsRepository->findDemanded($demand)
