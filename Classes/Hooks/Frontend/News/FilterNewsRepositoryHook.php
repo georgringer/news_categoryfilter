@@ -39,5 +39,13 @@ class FilterNewsRepositoryHook
         if ($category2) {
             $constraints['news_filter_category2'] = $query->contains('categories', $category2);
         }
+        $category3 = $demand->getCategory3();
+        if ($category3) {
+            $constraints['news_filter_category3'] = $query->contains('categories', $category3);
+        }
+        $category4 = $demand->getCategory4();
+        if ($category4) {
+            $constraints['news_filter_category4'] = $query->contains('categories', $category4);
+        }
     }
 }

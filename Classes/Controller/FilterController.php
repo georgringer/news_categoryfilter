@@ -33,6 +33,8 @@ class FilterController extends ActionController
         $demand->setStoragePage($this->settings['startingpoint']);
         $demand->setCategory1($filter->getCategory1());
         $demand->setCategory2($filter->getCategory2());
+        $demand->setCategory3($filter->getCategory3());
+        $demand->setCategory4($filter->getCategory4());
 
         return $demand;
     }

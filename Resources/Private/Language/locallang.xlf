@@ -10,6 +10,12 @@
 			<trans-unit id="news_categoryfilter.category2_select_placeholder">
                 <source>No Filter</source>
             </trans-unit>
+			<trans-unit id="news_categoryfilter.category3_select_placeholder">
+                <source>No Filter</source>
+            </trans-unit>
+			<trans-unit id="news_categoryfilter.category4_select_placeholder">
+                <source>No Filter</source>
+            </trans-unit>
 			<trans-unit id="news_categoryfilter.filter_reset">
                 <source>Auswahl zurücksetzen</source>
             </trans-unit>
