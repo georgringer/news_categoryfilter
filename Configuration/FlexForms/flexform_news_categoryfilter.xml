@@ -170,6 +170,17 @@
                         </TCEforms>
                     </settings.category4>
 
+                    <!-- Heading Content -->
+                    <settings.headingContent>
+                        <TCEforms>
+                            <label>LLL:EXT:news_categoryfilter/Resources/Private/Language/locallang_be.xlf:flexforms_general.headingContent</label>
+                            <config>
+                                <type>input</type>
+                                <size>500</size>
+                            </config>
+                        </TCEforms>
+                    </settings.headingContent>
+
                     <!-- startingpoint -->
                     <settings.startingpoint>
                         <TCEforms>
