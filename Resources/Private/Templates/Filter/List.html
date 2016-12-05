@@ -3,35 +3,30 @@
 
 <div class="pure-g jobFilter">
     <div class="pure-u-1">
-        <f:form name="filter" object="{filter}" class="pure-form">
-            <f:form.select property="category1" id="category1"
-                           options="{newscat:categoryFilter(news:news,categoryParent:settings.category1)}"
-                           prependOptionLabel="{f:if(condition: settings.categoryFilterName1, then: settings.categoryFilterName1)}" prependOptionValue="" class="form-control jobFilter1"
-                           additionalAttributes="{onchange: 'this.form.submit()'}"/>
-            <f:form.select property="category2" id="category2"
-                           options="{newscat:categoryFilter(news:news,categoryParent:settings.category2)}"
-                           prependOptionLabel="{f:if(condition: settings.categoryFilterName2, then: settings.categoryFilterName2)}" prependOptionValue="" class="form-control jobFilter2"
-                           additionalAttributes="{onchange: 'this.form.submit()'}"/>
-            <span class="jobFilterReset">
-              <f:if condition="{settings.headingContent}">{settings.headingContent}</f:if>
-            </span>
-            <f:if condition="{settings.headingContent}">
-              <f:else>
-                <div class="jobFilterSeparator"></div>
-              </f:else>
-            </f:if>
-            <f:form.select property="category3" id="category3"
-                           options="{newscat:categoryFilter(news:news,categoryParent:settings.category3)}"
-                           prependOptionLabel="{f:if(condition: settings.categoryFilterName3, then: settings.categoryFilterName3)}" prependOptionValue="" class="form-control jobFilter3"
-                           additionalAttributes="{onchange: 'this.form.submit()'}"/>
-            <f:form.select property="category4" id="category4"
-                           options="{newscat:categoryFilter(news:news,categoryParent:settings.category4)}"
-                           prependOptionLabel="{f:if(condition: settings.categoryFilterName4, then: settings.categoryFilterName4)}" prependOptionValue="" class="form-control jobFilter4"
-                           additionalAttributes="{onchange: 'this.form.submit()'}"/>
-            <f:link.page pageUid="{settings.backPid}" class="jobFilterReset">
-                {f:translate(key: 'news_categoryfilter.filter_reset', default: 'Auswahl zurücksetzen', extensionName:'news_categoryfilter')}
-            </f:link.page>
-        </f:form>
+      <span class="jobFilterHeadline">
+        <f:if condition="{settings.headingContent}">{settings.headingContent}</f:if>
+      </span>
+      <f:form name="filter" object="{filter}" class="pure-form">
+        <f:form.select property="category1" id="category1"
+                       options="{newscat:categoryFilter(news:news,categoryParent:settings.category1)}"
+                       prependOptionLabel="{f:if(condition: settings.categoryFilterName1, then: settings.categoryFilterName1)}" prependOptionValue="" class="form-control jobFilter1"
+                       additionalAttributes="{onchange: 'this.form.submit()'}"/>
+        <f:form.select property="category2" id="category2"
+                       options="{newscat:categoryFilter(news:news,categoryParent:settings.category2)}"
+                       prependOptionLabel="{f:if(condition: settings.categoryFilterName2, then: settings.categoryFilterName2)}" prependOptionValue="" class="form-control jobFilter2"
+                       additionalAttributes="{onchange: 'this.form.submit()'}"/>
+        <f:form.select property="category3" id="category3"
+                       options="{newscat:categoryFilter(news:news,categoryParent:settings.category3)}"
+                       prependOptionLabel="{f:if(condition: settings.categoryFilterName3, then: settings.categoryFilterName3)}" prependOptionValue="" class="form-control jobFilter3"
+                       additionalAttributes="{onchange: 'this.form.submit()'}"/>
+        <f:form.select property="category4" id="category4"
+                       options="{newscat:categoryFilter(news:news,categoryParent:settings.category4)}"
+                       prependOptionLabel="{f:if(condition: settings.categoryFilterName4, then: settings.categoryFilterName4)}" prependOptionValue="" class="form-control jobFilter4"
+                       additionalAttributes="{onchange: 'this.form.submit()'}"/>
+      </f:form>
+      <f:link.page pageUid="{settings.backPid}" class="jobFilterReset">
+          {f:translate(key: 'news_categoryfilter.filter_reset', default: 'Auswahl zurücksetzen', extensionName:'news_categoryfilter')}
+      </f:link.page>
     </div>
 </div>
 
