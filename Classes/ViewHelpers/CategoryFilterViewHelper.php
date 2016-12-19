@@ -51,7 +51,7 @@ class CategoryFilterViewHelper extends AbstractViewHelper implements CompilableI
             'sys_category',
             'parent=' . $categoryParent . $GLOBALS['TSFE']->sys_page->enableFields('sys_category'),
             '',
-            'sorting',
+            'title',
             '',
             'uid'
         );
@@ -69,10 +69,10 @@ class CategoryFilterViewHelper extends AbstractViewHelper implements CompilableI
         }
 
         // apply correct sorting
-        // $order = array_keys($allChildCategories);
-        // uksort($categoryList, function ($key1, $key2) use ($order) {
-        //     return (array_search($key1, $order) > array_search($key2, $order));
-        // });
+        $order = array_keys($allChildCategories);
+        uksort($categoryList, function ($key1, $key2) use ($order) {
+            return (array_search($key1, $order) > array_search($key2, $order));
+        });
 
         return $categoryList;
     }
