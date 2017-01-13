@@ -44,11 +44,35 @@
                                   </f:for>
                               </div>
                               <div class="newsTitle">
-                                  <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link>
+                                <f:if condition="{newsItem.falRelatedFiles}">
+                                  <f:then>
+                                    <f:for each="{newsItem.falRelatedFiles}" as="relatedFile" iteration="falIterator">
+                                      <f:if condition="{falIterator.isFirst}">
+                                        <a href="{relatedFile.originalResource.publicUrl -> f:format.htmlspecialchars()}" target="_blank">{newsItem.title}</a>
+                                      </f:if>
+                                    </f:for>
+                                  </f:then>
+                                  <f:else>
+                                    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link>
+                                  </f:else>
+                                </f:if>
                               </div>
                           </div>
                           <div class="pure-u-1-4 jobsRightCol">
-                              <span class="pure-button jobButton pure-button-primary"><n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">Zu den Details</n:link></span>
+                              <span class="pure-button jobButton pure-button-primary">
+                                <f:if condition="{newsItem.falRelatedFiles}">
+                                  <f:then>
+                                    <f:for each="{newsItem.falRelatedFiles}" as="relatedFile" iteration="falIterator">
+                                      <f:if condition="{falIterator.isFirst}">
+                                        <a href="{relatedFile.originalResource.publicUrl -> f:format.htmlspecialchars()}" target="_blank">Download</a>
+                                      </f:if>
+                                    </f:for>
+                                  </f:then>
+                                  <f:else>
+                                    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">Zu den Details</n:link>
+                                  </f:else>
+                                </f:if>
+                              </span>
                           </div>
                       </div>
                   </f:for>
