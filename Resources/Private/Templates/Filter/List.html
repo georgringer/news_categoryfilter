@@ -64,7 +64,7 @@
                                   <f:then>
                                     <f:for each="{newsItem.falRelatedFiles}" as="relatedFile" iteration="falIterator">
                                       <f:if condition="{falIterator.isFirst}">
-                                        <a href="{relatedFile.originalResource.publicUrl -> f:format.htmlspecialchars()}" target="_blank">Download</a>
+                                        <a href="{relatedFile.originalResource.publicUrl -> f:format.htmlspecialchars()}" target="_blank">Zu den Details</a>
                                       </f:if>
                                     </f:for>
                                   </f:then>
