@@ -1,5 +1,6 @@
 {namespace newscat = GeorgRinger\NewsCategoryfilter\ViewHelpers}
 {namespace n=GeorgRinger\News\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
 
 <div class="pure-g jobFilter">
     <div class="pure-u-1">
@@ -31,11 +32,12 @@
 </div>
 
 <f:if condition="{filterActive}">
+
   <f:if condition="{news}">
       <f:then>
           <div class="pure-g jobFilterList">
               <div class="pure-u-1">
-                  <f:for each="{news}" as="newsItem">
+                  <f:for each="{news -> v:iterator.sort(sortBy: 'title')}" as="newsItem">
                       <div class="pure-g jobItem">
                           <div class="pure-u-3-4 jobsLeftCol">
                               <div class="filterCategories">
