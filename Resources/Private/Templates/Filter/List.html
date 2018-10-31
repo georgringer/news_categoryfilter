@@ -1,41 +1,89 @@
 {namespace newscat = GeorgRinger\NewsCategoryfilter\ViewHelpers}
+{namespace n=GeorgRinger\News\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
 
-<h3>Filter</h3>
-
-<f:form name="filter" object="{filter}" class="form-inline">
-    <div class="form-group">
-        <label for="category1">Category 1</label>
+<div class="pure-g jobFilter">
+    <div class="pure-u-1">
+      <span class="jobFilterHeadline">
+        <f:if condition="{settings.headingContent}">{settings.headingContent}</f:if>
+      </span>
+      <f:form name="filter" object="{filter}" class="pure-form">
         <f:form.select property="category1" id="category1"
                        options="{newscat:categoryFilter(news:news,categoryParent:settings.category1)}"
-                       prependOptionLabel="" prependOptionValue="" class="form-control"/>
-    </div>
-    <div class="form-group">
-        <label for="category2">Category 2</label>
+                       prependOptionLabel="{f:if(condition: settings.categoryFilterName1, then: settings.categoryFilterName1)}" prependOptionValue="" class="form-control jobFilter1"
+                       additionalAttributes="{onchange: 'this.form.submit()'}"/>
         <f:form.select property="category2" id="category2"
                        options="{newscat:categoryFilter(news:news,categoryParent:settings.category2)}"
-                       prependOptionLabel="" prependOptionValue="" class="form-control"/>
+                       prependOptionLabel="{f:if(condition: settings.categoryFilterName2, then: settings.categoryFilterName2)}" prependOptionValue="" class="form-control jobFilter2"
+                       additionalAttributes="{onchange: 'this.form.submit()'}"/>
+        <f:form.select property="category3" id="category3"
+                       options="{newscat:categoryFilter(news:news,categoryParent:settings.category3)}"
+                       prependOptionLabel="{f:if(condition: settings.categoryFilterName3, then: settings.categoryFilterName3)}" prependOptionValue="" class="form-control jobFilter3"
+                       additionalAttributes="{onchange: 'this.form.submit()'}"/>
+        <f:form.select property="category4" id="category4"
+                       options="{newscat:categoryFilter(news:news,categoryParent:settings.category4)}"
+                       prependOptionLabel="{f:if(condition: settings.categoryFilterName4, then: settings.categoryFilterName4)}" prependOptionValue="" class="form-control jobFilter4"
+                       additionalAttributes="{onchange: 'this.form.submit()'}"/>
+      </f:form>
+      <f:link.page pageUid="{settings.backPid}" class="jobFilterReset">
+          {f:translate(key: 'news_categoryfilter.filter_reset', default: 'Auswahl zurücksetzen', extensionName:'news_categoryfilter')}
+      </f:link.page>
     </div>
-    <div class="form-group">
-        <f:form.submit class="btn btn-primary" value="Filter"/>
-    </div>
-</f:form>
+</div>
 
-<f:if condition="{news}">
-    <f:then>
-        <div class="row">
-            <f:for each="{news}" as="newsItem">
-                <div class="col-md-3">
-                    <h5>{newsItem.title}</h5>
-                    <ul>
-                        <f:for each="{newsItem.categories}" as="category">
-                            <li>{category.title}</li>
-                        </f:for>
-                    </ul>
-                </div>
-            </f:for>
-        </div>
-    </f:then>
-    <f:else>
-        <div class="alert alert-danger">No news found</div>
-    </f:else>
+<f:if condition="{filterActive}">
+
+  <f:if condition="{news}">
+      <f:then>
+          <div class="pure-g jobFilterList">
+              <div class="pure-u-1">
+                  <f:for each="{news -> v:iterator.sort(sortBy: 'title')}" as="newsItem">
+                      <div class="pure-g jobItem">
+                          <div class="pure-u-3-4 jobsLeftCol">
+                              <div class="filterCategories">
+                                  <f:for each="{newsItem.categories}" as="category" iteration="iterator">
+                                      <span class="filterCategory">{category.title}<f:if condition="{iterator.isLast}"><f:else>, </f:else></f:if></span>
+                                  </f:for>
+                              </div>
+                              <div class="newsTitle">
+                                <f:if condition="{newsItem.falRelatedFiles}">
+                                  <f:then>
+                                    <f:for each="{newsItem.falRelatedFiles}" as="relatedFile" iteration="falIterator">
+                                      <f:if condition="{falIterator.isFirst}">
+                                        <a href="{relatedFile.originalResource.publicUrl -> f:format.htmlspecialchars()}" target="_blank">{newsItem.title}</a>
+                                      </f:if>
+                                    </f:for>
+                                  </f:then>
+                                  <f:else>
+                                    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link>
+                                  </f:else>
+                                </f:if>
+                              </div>
+                          </div>
+                          <div class="pure-u-1-4 jobsRightCol">
+                              <span class="pure-button jobButton pure-button-primary">
+                                <f:if condition="{newsItem.falRelatedFiles}">
+                                  <f:then>
+                                    <f:for each="{newsItem.falRelatedFiles}" as="relatedFile" iteration="falIterator">
+                                      <f:if condition="{falIterator.isFirst}">
+                                        <a href="{relatedFile.originalResource.publicUrl -> f:format.htmlspecialchars()}" target="_blank">Zu den Details</a>
+                                      </f:if>
+                                    </f:for>
+                                  </f:then>
+                                  <f:else>
+                                    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">Zu den Details</n:link>
+                                  </f:else>
+                                </f:if>
+                              </span>
+                          </div>
+                      </div>
+                  </f:for>
+                  <div class="jobSeparator"></div>
+              </div>
+          </div>
+      </f:then>
+      <f:else>
+          <div class="alert alert-danger">No news found</div>
+      </f:else>
+  </f:if>
 </f:if>

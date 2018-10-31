@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-    <file source-language="en" datatype="plaintext" original="messages" date="2016-10-07T11:59:44Z"
-          product-name="downloads">
+    <file source-language="en" datatype="plaintext" original="messages" date="2016-10-07T11:59:44Z" product-name="news_categoryfilter">
         <header/>
         <body>
+
             <trans-unit id="flexforms_general.category1">
                 <source>Category 1</source>
+            </trans-unit>
+            <trans-unit id="flexforms_general.categoryFilterName1">
+                <source>Category Filter Name 1</source>
             </trans-unit>
             <trans-unit id="flexforms_general.category2">
                 <source>Category 2</source>
             </trans-unit>
+            <trans-unit id="flexforms_general.categoryFilterName2">
+                <source>Category Filter Name 2</source>
+            </trans-unit>
+            <trans-unit id="flexforms_general.category3">
+                <source>Category 3</source>
+            </trans-unit>
+            <trans-unit id="flexforms_general.categoryFilterName3">
+                <source>Category Filter Name 3</source>
+            </trans-unit>
+            <trans-unit id="flexforms_general.category4">
+                <source>Category 4</source>
+            </trans-unit>
+            <trans-unit id="flexforms_general.categoryFilterName4">
+                <source>Category Filter Name 4</source>
+            </trans-unit>
             <trans-unit id="plugin-title">
                 <source>News Category Filter</source>
+            </trans-unit>
+            <trans-unit id="flexforms_general.headingContent">
+                <source>Heading Content</source>
             </trans-unit>
 
         </body>

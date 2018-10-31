@@ -1,8 +1,8 @@
 <?php
 
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'News system',
-    'description' => 'Versatile news extension, based on extbase & fluid. Editor friendly, default integration of social sharing and many other features',
+    'title' => 'News Category Filter',
+    'description' => 'Versatile Category Filter extension, based on news EXT.',
     'category' => 'fe',
     'author' => 'Georg Ringer',
     'author_email' => 'typo3@ringerge.org',
@@ -18,7 +18,7 @@ $EM_CONF[$_EXTKEY] = [
     'clearCacheOnLoad' => 1,
     'lockType' => '',
     'author_company' => '',
-    'version' => '1.0.0',
+    'version' => '1.2.0',
     'constraints' => [
         'depends' => [
             'typo3' => '7.6.0-8.9.99',

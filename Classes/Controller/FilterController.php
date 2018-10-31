@@ -18,6 +18,9 @@ class FilterController extends ActionController
             $filter = $this->objectManager->get(Filter::class);
         }
         $demand = $this->createDemandObject($filter);
+        if ($_GET['tx_newscategoryfilter_filter']) {
+            $this->view->assign('filterActive', true);
+        }
         $this->view->assignMultiple([
             'filter' => $filter,
             'news' => $this->newsRepository->findDemanded($demand)
@@ -33,6 +36,8 @@ class FilterController extends ActionController
         $demand->setStoragePage($this->settings['startingpoint']);
         $demand->setCategory1($filter->getCategory1());
         $demand->setCategory2($filter->getCategory2());
+        $demand->setCategory3($filter->getCategory3());
+        $demand->setCategory4($filter->getCategory4());
 
         return $demand;
     }

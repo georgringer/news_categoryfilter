@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="news_categoryfilter" date="2015-05-05T17:57:35+02:00">
+		<header/>
+		<body>
+
+			<trans-unit id="news_categoryfilter.category1_select_placeholder">
+                <source>No Filter</source>
+            </trans-unit>
+			<trans-unit id="news_categoryfilter.category2_select_placeholder">
+                <source>No Filter</source>
+            </trans-unit>
+			<trans-unit id="news_categoryfilter.category3_select_placeholder">
+                <source>No Filter</source>
+            </trans-unit>
+			<trans-unit id="news_categoryfilter.category4_select_placeholder">
+                <source>No Filter</source>
+            </trans-unit>
+			<trans-unit id="news_categoryfilter.filter_reset">
+                <source>Auswahl zurücksetzen</source>
+            </trans-unit>
+
+		</body>
+	</file>
+</xliff>

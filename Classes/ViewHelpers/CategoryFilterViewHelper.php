@@ -31,7 +31,7 @@ class CategoryFilterViewHelper extends AbstractViewHelper implements CompilableI
 
 
     /**
-     * Resolve user avatar from backend user id.
+     * Return the news items.
      *
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
@@ -51,7 +51,7 @@ class CategoryFilterViewHelper extends AbstractViewHelper implements CompilableI
             'sys_category',
             'parent=' . $categoryParent . $GLOBALS['TSFE']->sys_page->enableFields('sys_category'),
             '',
-            'sorting',
+            'title',
             '',
             'uid'
         );
